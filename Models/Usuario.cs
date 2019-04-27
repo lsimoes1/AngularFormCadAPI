@@ -14,5 +14,14 @@ namespace APIformCad.Models
 
         [BsonElement("Sobrenome")]
         public string Sobrenome { get; set; }
+
+        [BsonElement("Cidade")]
+        public string Cidade { get; set; }
+
+        [BsonElement("Estado")]
+        public string Estado { get; set; }
+
+        [BsonElement("CEP")]
+        public string CEP { get; set; }
     }
 }

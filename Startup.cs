@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,8 +32,17 @@ namespace APIformCad
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
+
             services.AddScoped<FormServices>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddCors();
+
+            services.AddCors(options =>
+            {
+            options.AddPolicy("AllowMyOrigin",
+            builder => builder.WithOrigins("http://localhost:4200"));
+            });
             
         }
         

@@ -22,9 +22,9 @@ namespace APIformCad.Services
             return _usuario.Find(Usuario => true).ToList();
         }
 
-        public Usuario Get(string id)
+        public Usuario Get(string nome)
         {
-            return _usuario.Find<Usuario>(Usuario => Usuario.Id == id).FirstOrDefault();
+            return _usuario.Find<Usuario>(Usuario => Usuario.Nome == nome).FirstOrDefault();
         }
 
         public Usuario Create(Usuario usuario)
